@@ -3,7 +3,6 @@
 #include <cstring>
 #include <ctime>
 
-
 using namespace std;
 
 #define width 80
@@ -18,10 +17,10 @@ using namespace std;
 #define catter '#'
 #define tankC 219
 
-
-
 typedef char mapHW[height][width];
 
+
+//Функция установки положения курсора консоли.
 void SetCurPos(int x, int y)
 {
     COORD coord;
@@ -30,12 +29,14 @@ void SetCurPos(int x, int y)
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
+//Перемещение танка.
 bool IsCross(RECT a, RECT b)
 {
     return(a.right >= b.left) && (a.left <= b.right)
           && (a.bottom >= b.top) && (a.top <= b.bottom);
 }
 
+//Структура для управления картой.
 struct Tmap {
     mapHW map;
     void Clear() {memset(map, field, sizeof(map)-1);}
@@ -44,10 +45,12 @@ struct Tmap {
 };
 
 
-
+//Данные связанные с направленим движения танка.
 enum Tdir {Rup = 0, Rdown, Rleft, Rright};
 POINT dirInc[] = {{0,-1}, {0,1}, {-1,0}, {1,0}};
 
+
+//Класс танка.
 class Ttank {
     int x,y;
     int sX, sY;
@@ -57,14 +60,17 @@ public:
     { dir = Rup; sX = startX; sY = startY; SetToStart(); }
     void Show(mapHW &map);
     void Move(char w, char s, char a, char d, char fire);
+    //Возвращение танка в точку спавна.
     void SetToStart() {x = sX; y = sY; }
     bool IsHoriz() {return (dir == Rright || dir == Rleft); }
     RECT GetRect() { RECT r = {x-1, y-1, x+1, y+1}; return r; }
 
 };
 
+//Тип прептствия.
 enum Tmatter {ttStone, ttBrick};
 
+//Класс препятствия.
 class Tbrick {
     RECT rct;
 public:
@@ -77,6 +83,7 @@ public:
 
 };
 
+//Класс пуль.
 class Tpula {
     int x,y;
     int speed;
@@ -99,6 +106,7 @@ Tbrick brick[brickCnt];
 #define pulaCnt 100
 Tpula pula[pulaCnt];
 
+//Функция выбора свободной пули.
 Tpula &GetFreePula()
 {
     for (int i = 0; i < pulaCnt; i++)
@@ -106,6 +114,7 @@ Tpula &GetFreePula()
     return pula[0];
 }
 
+//Столкновение танков между собой.
 Ttank *CheckCrossAnyTank(RECT rct, Ttank *eccept)
 {
     for ( int i = 0; i < tankCnt; i++)
@@ -115,6 +124,7 @@ Ttank *CheckCrossAnyTank(RECT rct, Ttank *eccept)
     return 0;
 }
 
+//Столкновение танков с препятствиями.
 Tbrick *CheckCrossAnyBrick(RECT rct)
 {
     for (int i = 0; i < brickCnt; i++)
@@ -124,6 +134,7 @@ Tbrick *CheckCrossAnyBrick(RECT rct)
     return 0;
 }
 
+//Вывод танка на консоль (горизонтальная и вертикальная отрисовка гусениц, положение дула).
 void Ttank::Show(mapHW &map)
 {
     if (IsHoriz())
@@ -137,23 +148,28 @@ void Ttank::Show(mapHW &map)
 
 RECT area = {2,2, width-3,height-3 };
 
+//Управление танком.
 void Ttank::Move(char w, char s, char a, char d ,char fire)
 {
     char wsad[4] = {w,s,a,d};
     for( int i = 0; i < 4; i++)
         if  (GetKeyState(wsad[i]) < 0)  dir = (Tdir)i;
     POINT pt = dirInc[dir];
+    //Текущие значения танка.
     Ttank old = *this;
     x += pt.x;
     y += pt.y;
+    //Взаимодействие танка с другими обЪектами.
     if (!IsCross(area, GetRect()) ||
         (CheckCrossAnyTank(GetRect(), this) != 0) ||
         (CheckCrossAnyBrick(GetRect()) != 0))
         *this = old;
+    //Реализация стрельбы.
     if (GetKeyState(fire) < 0)
         GetFreePula().SetPula(x + pt.x*2, y + pt.y*2, dir);
 }
 
+//Отображение препятствий.
 void Tbrick::Show(mapHW &map)
 {
     if (!use) return;
@@ -167,6 +183,7 @@ void Tbrick::Show(mapHW &map)
 
 RECT areaPula = {0,0, width-1,height-1};
 
+//Движение пули.
 void Tpula::Move()
 {
     if (!use) return;
@@ -187,6 +204,7 @@ void Tpula::Move()
     }
 }
 
+//Генерация ландшафта.
 void CreateBattleField()
 {
     int pos = 0;
@@ -206,10 +224,8 @@ int main()
     srand(time(0));
     CreateBattleField();
 
-
     do
     {
-
         tank[0].Move('W','S','A','D', VK_SPACE);
         tank[1].Move(38,40,37,39,13);
         for (int i = 0; i < pulaCnt; pula[i++].Move());
@@ -221,11 +237,9 @@ int main()
         scr.Show();
 
         Sleep(100);
-
     }
     while (GetKeyState(VK_ESCAPE)  >= 0);
     return 0;
-
 }
 
 
