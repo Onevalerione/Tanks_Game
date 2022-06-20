@@ -1,3 +1,7 @@
 C:/Users/user/CLionProjects/Tanks_Game1/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/user/CLionProjects/Tanks_Game1/cmake-build-debug/CMakeFiles/Tanks_Game1.dir
+C:/Users/user/CLionProjects/Tanks_Game1/cmake-build-debug/CMakeFiles/Tanks_Game.dir
 C:/Users/user/CLionProjects/Tanks_Game1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/user/CLionProjects/Tanks_Game1/cmake-build-debug/doctest/CMakeFiles/rebuild_cache.dir
+C:/Users/user/CLionProjects/Tanks_Game1/cmake-build-debug/doctest/CMakeFiles/doctest.dir
+C:/Users/user/CLionProjects/Tanks_Game1/cmake-build-debug/doctest/CMakeFiles/edit_cache.dir
