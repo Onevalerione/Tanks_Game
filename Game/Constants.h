@@ -4,20 +4,28 @@
 using namespace std;
 
 
-
+/// Ширина карты
 const int width =  80;
+/// Высота карты
 const int height =  25;
+/// Символ, заполняющий поле
 const int field =  ' ';
+/// Символ кирпичей
 const int fbrick =  176;
+/// Символ камня
 const int fstone =  206;
+/// Символ дула по горизонтали
 const int duloH =  205;
+/// Символ дула по вертикали
 const int duloV =  179;
+/// Символ для гусениц
 const int catter =  '#';
+/// Символ корпуса танка
 const int tankC =  219;
 
 
-
-typedef char mapHW[height][width];//<Тип данных для карты
+///Тип данных для карты
+typedef char mapHW[height][width];
 
 
 /**
@@ -28,14 +36,14 @@ typedef char mapHW[height][width];//<Тип данных для карты
 enum Tdir {Rup = 0, Rdown, Rleft, Rright};//<Хранит направление движения танка
 POINT dirInc[] = {{0,-1}, {0,1}, {-1,0}, {1,0}};//<Хранит изменения координат при движении
 
+/// Размер области
+RECT area = {2,2, width-3,height-3 };
 
-RECT area = {2,2, width-3,height-3 };//< Размер области
+/// Область движения пули
+RECT areaPula = {0,0, width-1,height-1};
 
 
-RECT areaPula = {0,0, width-1,height-1};//< Область движения пули
-
-
-//Тип прептствия.
+/// Тип прептствия.
 enum Tmatter {ttStone, ttBrick};
 
 

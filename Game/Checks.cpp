@@ -3,7 +3,6 @@
 
 
 /**
- * CheckCrossAnyTank()
  * Проверяет столкновения танков между собой
  * @param rct
  * @param accept
@@ -21,7 +20,6 @@ Ttank *CheckCrossAnyTank(RECT rct, Ttank *accept)//< Область для пр�
 
 
 /**
- * CheckCrossAnyBric()
  * Проверяет на столкновение танков с препятствиями
  * @param rct
  * @return 0

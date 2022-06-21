@@ -59,21 +59,21 @@ Tpula pula[pulaCnt];//< Массив пули
 
 
 /**
- *
+ * Отвечает за взаимодействие объектов танков между собой
  * @param a
  * @param b
- * @return возвращает
+ * @return (a.right >= b.left) && (a.left <= b.right)
+          && (a.bottom >= b.top) && (a.top <= b.bottom);
  */
-//Перемещение танка.
 bool IsCross(RECT a, RECT b)
 {
-    return(a.right >= b.left) && (a.left <= b.right)//<  Функция проверки пересечения прямоугольников объекта танка
+    return(a.right >= b.left) && (a.left <= b.right)
           && (a.bottom >= b.top) && (a.top <= b.bottom);
 }
 
 
 /**
- * CreateBattleField()
+ *
  * Отвечает за генерацию ландшафта
  */
 //Генерация ландшафта.
@@ -97,7 +97,6 @@ void CreateBattleField()
 
 
 /**
- * GetFreePula()
  * Функция отвечает за выбор свободной пули
  * @brief Поиск первого свободного элемента
  * Возвращение элемента

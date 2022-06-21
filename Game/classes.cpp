@@ -36,14 +36,12 @@ public:
      */
     void SetToStart() {x = sX; y = sY; }
     /**
-     * IsHoriz()
      * Проверка, что танк смотрит по горизонтали
      * @return (dir == Rright || dir == Rleft)
      *
      */
     bool IsHoriz() {return (dir == Rright || dir == Rleft); }
     /**
-     * GetRect()
      * @return r
      * Возвращает область занимаемую танком
      */
@@ -63,7 +61,6 @@ public:
     Tdir dir;//< Направление пули
     bool use;//< Использование пули
     /**
-     * Tpula()
      * Задает параметры пули по умлочанию
      */
     Tpula() { use = 0; speed = 5; }
@@ -77,7 +74,6 @@ public:
     void SetPula(int px, int py, Tdir pdir)
     {x = px; y =py; dir = pdir; use = 1; }
     /**
-     * Move()
      * Перемещение пули
      */
     void Move();
@@ -102,25 +98,21 @@ public:
     Tmatter tp; //< Тип препятствия
 
     /**
-     * Tbrick()
      * Задает препятствие по умлочанию - кирпич
      */
     Tbrick() {use = 0;tp = ttBrick; }
     /**
-     * Show()
      * Отображение прептствия на карте
      * @param map
      */
     void Show(mapHW &map);
     /**
-     * SetPos()
      * Помещение препятствия в нужную точку
      * @param px
      * @param py
      */
     void SetPos(int px, int py) {RECT r ={px-1, py-1, px+1, py+1}; rct =r; use = 1; }
     /**
-     * GetRect()
      * Изображение прямоугольника объекта
      * @return rct
      *
