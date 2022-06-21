@@ -49,10 +49,13 @@ struct Tmap {
  * Массивы данных для обЪектов
  */
 Tmap scr;
+///Объект танка
 const int tankCnt =  2;
 Ttank tank[tankCnt] = { Ttank (1,11), Ttank(78, 11) };//<Координаты объекта танка
+///Объект препятствия
 const int brickCnt =  300;
 Tbrick brick[brickCnt];//< Массив препятствия
+///Объект пули
 const int pulaCnt =  100;
 Tpula pula[pulaCnt];//< Массив пули
 
