@@ -6,12 +6,12 @@
 //Отображение препятствий.
 void Tbrick::Show(mapHW &map)
 {
-    if (!use) return;
-    for (int i = rct.left; i <= rct.right; i++)
+    if (!use) return;//< Если не исползуется, то не показываем
+    for (int i = rct.left; i <= rct.right; i++)//< Отрисовка препятствий
         for (int j = rct.top; j <= rct.bottom; j++)
             if (tp == ttBrick)
-                map[j][i] = fbrick;
+                map[j][i] = fbrick;//< Отрисовка кирпичей
             else
-                map[j][i] = fstone;
+                map[j][i] = fstone;//< Отрисовка камней
 }
 

@@ -30,5 +30,5 @@ TEST_CASE ("Crossing objects") {
 
 }
 
-
 TEST_SUITE_END();
+
