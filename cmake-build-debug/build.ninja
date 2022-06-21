@@ -60,12 +60,12 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 
 build cmake_object_order_depends_target_Tanks_Game1: phony || cmake_object_order_depends_target_doctest
 
-build CMakeFiles/Tanks_Game1.dir/test.cpp.obj: CXX_COMPILER__Tanks_Game1_Debug C$:/Users/user/CLionProjects/Tanks_Game1/test.cpp || cmake_object_order_depends_target_Tanks_Game1
-  DEP_FILE = CMakeFiles\Tanks_Game1.dir\test.cpp.obj.d
+build CMakeFiles/Tanks_Game1.dir/Game/test.cpp.obj: CXX_COMPILER__Tanks_Game1_Debug C$:/Users/user/CLionProjects/Tanks_Game1/Game/test.cpp || cmake_object_order_depends_target_Tanks_Game1
+  DEP_FILE = CMakeFiles\Tanks_Game1.dir\Game\test.cpp.obj.d
   FLAGS = -static -g -std=gnu++14
   INCLUDES = -IC:/Users/user/CLionProjects/Tanks_Game1/doctest
   OBJECT_DIR = CMakeFiles\Tanks_Game1.dir
-  OBJECT_FILE_DIR = CMakeFiles\Tanks_Game1.dir
+  OBJECT_FILE_DIR = CMakeFiles\Tanks_Game1.dir\Game
 
 
 # =============================================================================
@@ -75,7 +75,7 @@ build CMakeFiles/Tanks_Game1.dir/test.cpp.obj: CXX_COMPILER__Tanks_Game1_Debug C
 #############################################
 # Link the executable Tanks_Game1.exe
 
-build Tanks_Game1.exe: CXX_EXECUTABLE_LINKER__Tanks_Game1_Debug CMakeFiles/Tanks_Game1.dir/test.cpp.obj | doctest/libdoctest.a || doctest/libdoctest.a
+build Tanks_Game1.exe: CXX_EXECUTABLE_LINKER__Tanks_Game1_Debug CMakeFiles/Tanks_Game1.dir/Game/test.cpp.obj | doctest/libdoctest.a || doctest/libdoctest.a
   FLAGS = -static -g
   LINK_FLAGS = -static-libgcc -static-libstdc++ -Wl,-Bstatic -lstdc++ -lpthread -Wl,-Bdynamic
   LINK_LIBRARIES = doctest/libdoctest.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
@@ -95,11 +95,11 @@ build Tanks_Game1.exe: CXX_EXECUTABLE_LINKER__Tanks_Game1_Debug CMakeFiles/Tanks
 
 build cmake_object_order_depends_target_Tanks_Game: phony || CMakeFiles/Tanks_Game.dir
 
-build CMakeFiles/Tanks_Game.dir/main.cpp.obj: CXX_COMPILER__Tanks_Game_Debug C$:/Users/user/CLionProjects/Tanks_Game1/main.cpp || cmake_object_order_depends_target_Tanks_Game
-  DEP_FILE = CMakeFiles\Tanks_Game.dir\main.cpp.obj.d
+build CMakeFiles/Tanks_Game.dir/Game/main.cpp.obj: CXX_COMPILER__Tanks_Game_Debug C$:/Users/user/CLionProjects/Tanks_Game1/Game/main.cpp || cmake_object_order_depends_target_Tanks_Game
+  DEP_FILE = CMakeFiles\Tanks_Game.dir\Game\main.cpp.obj.d
   FLAGS = -static -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\Tanks_Game.dir
-  OBJECT_FILE_DIR = CMakeFiles\Tanks_Game.dir
+  OBJECT_FILE_DIR = CMakeFiles\Tanks_Game.dir\Game
 
 
 # =============================================================================
@@ -109,7 +109,7 @@ build CMakeFiles/Tanks_Game.dir/main.cpp.obj: CXX_COMPILER__Tanks_Game_Debug C$:
 #############################################
 # Link the executable Tanks_Game.exe
 
-build Tanks_Game.exe: CXX_EXECUTABLE_LINKER__Tanks_Game_Debug CMakeFiles/Tanks_Game.dir/main.cpp.obj
+build Tanks_Game.exe: CXX_EXECUTABLE_LINKER__Tanks_Game_Debug CMakeFiles/Tanks_Game.dir/Game/main.cpp.obj
   FLAGS = -static -g
   LINK_FLAGS = -static-libgcc -static-libstdc++ -Wl,-Bstatic -lstdc++ -lpthread -Wl,-Bdynamic
   LINK_LIBRARIES = -static-libgcc -static-libstdc++ -Wl,-Bstatic -lstdc++ -lpthread -Wl,-Bdynamic  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
