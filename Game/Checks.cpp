@@ -2,6 +2,13 @@
 #include "Functions.cpp"
 
 
+/**
+ * CheckCrossAnyTank()
+ * Проверяет столкновения танков между собой
+ * @param rct
+ * @param accept
+ * @return 0
+ */
 //Столкновение танков между собой.
 Ttank *CheckCrossAnyTank(RECT rct, Ttank *accept)//< Область для проверки
 {
@@ -12,6 +19,13 @@ Ttank *CheckCrossAnyTank(RECT rct, Ttank *accept)//< Область для пр�
     return 0;
 }
 
+
+/**
+ * CheckCrossAnyBric()
+ * Проверяет на столкновение танков с препятствиями
+ * @param rct
+ * @return 0
+ */
 //Столкновение танков с препятствиями.
 Tbrick *CheckCrossAnyBrick(RECT rct)
 {
